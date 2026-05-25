@@ -1,0 +1,48 @@
+.gb-wrap {
+  position: relative;
+  display: inline-flex;
+  border-radius: 7px;
+  padding: 0;
+  isolation: isolate;
+}
+
+.gb-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  /* background: "linear-gradient(90deg, #484AE6 0%, #2960EA 49.52%, #DAACB9 100%)",;
+  background: linear-gradient(90deg, #484AE6 0%, #2960EA 49.52%, #DAACB9 100%); */
+
+  background: linear-gradient(90deg, #484AE6 0%, #2960EA 49.52%, #DAACB9 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gb-input {
+  position: relative;
+  z-index: 1;
+  width: 185px;
+  padding: 12px 14px;
+  border: 0;
+  outline: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: #AAAAAA;
+
+  font-size: 16px;
+}
+
+.gb-wrap:focus-within::before {
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.45));
+}
+
+.gb-input::placeholder {
+  color: #cbd5e1;
+}
